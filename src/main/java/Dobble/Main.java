@@ -1,11 +1,15 @@
 package Dobble;
 
-import java.util.*;
+import Ventanas.*;
+
 
 // CLASE MAIN, aqui ocurre toda la magia del menu por consola.
 public class Main {
     public static void main(String[] args){
 
+        Ventana app = new Ventana();
+        app.setVisible(true);
+        /*
         Scanner escaneo = new Scanner(System.in);
         int condicion = 0;
         Dobble mazo;
@@ -130,5 +134,6 @@ public class Main {
                 condicion = 1;
             }
         }
+        */
     }
 }
