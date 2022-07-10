@@ -7,7 +7,7 @@ import Ventanas.*;
 public class Main {
     public static void main(String[] args){
 
-        Ventana app = new Ventana();
+        Principal app = new Principal();
         app.setVisible(true);
         /*
         Scanner escaneo = new Scanner(System.in);
