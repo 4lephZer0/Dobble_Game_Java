@@ -69,7 +69,11 @@ public class Principal extends JFrame {
         ActionListener empezar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+
+
+                VentanaMaxC app2 = new VentanaMaxC(1);
+                app2.setVisible(true);
+                dispose();
             }
         };
         EmpezarJuego.addActionListener(empezar);

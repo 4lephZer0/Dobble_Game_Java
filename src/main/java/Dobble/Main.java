@@ -6,9 +6,10 @@ import Ventanas.*;
 // CLASE MAIN, aqui ocurre toda la magia del menu por consola.
 public class Main {
     public static void main(String[] args){
-
+        int maxC;
         Principal app = new Principal();
         app.setVisible(true);
+
         /*
         Scanner escaneo = new Scanner(System.in);
         int condicion = 0;
