@@ -3,11 +3,22 @@ package Dobble;
 import Ventanas.*;
 
 
+import java.util.List;
+
+
 // CLASE MAIN, aqui ocurre toda la magia del menu por consola.
 public class Main {
     public static void main(String[] args){
-        int maxC;
-        Principal app = new Principal();
+        int maxC = 0;
+        int numE = 0;
+        int caso = 1;
+        int cantJug = 0;
+        List<String> elements = null;
+        Dobble mazo = null;
+        DobbleGame juego = null;
+
+
+        Principal app = new Principal(maxC, numE, elements, caso, cantJug, mazo, juego);
         app.setVisible(true);
 
         /*
