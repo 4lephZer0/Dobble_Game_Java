@@ -10,6 +10,7 @@ import java.util.List;
 public class VentanaJuego extends JFrame {
 
     JPanel panel = new JPanel();
+    JLabel textoTurno = new JLabel();
     JLabel texto = new JLabel();
     JLabel texto2 = new JLabel();
     JLabel texto3 = new JLabel();
@@ -18,10 +19,11 @@ public class VentanaJuego extends JFrame {
 
 
     String caso;
-    DobbleGame juego = null;
+    DobbleGame juego;
 
     public VentanaJuego(DobbleGame juego, String caso){
 
+        System.out.println("Juego: " + juego);
         this.caso = caso;
         this.juego = juego;
 
@@ -60,6 +62,13 @@ public class VentanaJuego extends JFrame {
         panel.add(logo);
 
         if (caso.equals("vuelta")){
+
+            textoTurno = new JLabel("Turno de: " + juego.whoseTurnIsIt(juego).getJugador());
+            textoTurno.setHorizontalAlignment(SwingConstants.CENTER);
+            textoTurno.setBounds(150,50, 300, 50);
+            textoTurno.setForeground(Color.BLACK);
+            textoTurno.setFont(new Font("Georgia",1, 20));
+            panel.add(textoTurno);
 
             texto = new JLabel("Encuentra el simbolo en comun!!");
             texto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -111,12 +120,12 @@ public class VentanaJuego extends JFrame {
         ActionListener vueltas = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                System.out.println("Juego: " + juego);
                 juego = juego.play(juego,"1", "");
-                System.out.println("Juego: " + juego.getMesa());
-                app = new VentanaJuego(juego, "Vuelta");
-                app.setVisible(true);
-                VentanaJuego.super.dispose();
+
+                VentanaJuego app1 = new VentanaJuego(juego, "vuelta");
+                app1.setVisible(true);
+                dispose();
             }
         };
         darVueltaCartas.addActionListener(vueltas);
@@ -163,6 +172,7 @@ public class VentanaJuego extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                juego = juego.play(juego, "3", "");
                 app = new VentanaJuego(juego, "NoCards");
                 app.setVisible(true);
                 dispose();

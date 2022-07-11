@@ -29,6 +29,8 @@ public class Principal extends JFrame {
         this.elements = elements;
         this.caso = caso;
         this.cantJug = cantJug;
+        this.juego = juego;
+        this.mazo = mazo;
 
         setSize(600,600);
         setLocationRelativeTo(null);
@@ -117,8 +119,8 @@ public class Principal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("texto " + maxC + numE + elements + cantJug);
                 mazo = new Dobble(maxC, numE, elements);
+                System.out.println("mazo: " + mazo);
                 juego = new DobbleGame(cantJug, mazo,"stackMode");
                 VentanaRegistros app3 = new VentanaRegistros(juego);
                 app3.setVisible(true);
@@ -147,7 +149,6 @@ public class Principal extends JFrame {
         ActionListener JugarA = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
                 VentanaJuego app4 = new VentanaJuego(juego, "NoCards");
                 app4.setVisible(true);

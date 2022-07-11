@@ -28,9 +28,11 @@ public class Dobble implements CardsSet {
         for (int i = 1; i <= n + 1; i++) {
             carta.add(elements.get(i - 1));
         }
+
         List<String> cartaAux = new ArrayList<String>(carta);
         Card carta1 = new Card(cartaAux.size(), cartaAux);
         mazo.add(carta1);
+
         for (int j = 1; j <= n; j++) {
             carta.clear();
             carta.add(elements.get(0));
@@ -61,12 +63,11 @@ public class Dobble implements CardsSet {
         if ((maxC < mazo.size()) && (maxC > 0)) {
 
             mazoNuevo = mazo.subList(0, (maxC - 1));
-        } else if ((maxC > mazo.size()) || (maxC < 0)){
+        } else if ((maxC >= mazo.size()) || (maxC < 0)){
 
             mazoNuevo = mazo;
 
         }
-
 
 
         this.cards = mazoNuevo;

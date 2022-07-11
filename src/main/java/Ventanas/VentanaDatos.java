@@ -115,7 +115,6 @@ public class VentanaDatos extends JFrame {
                             break;
                         case 4:
                             cantJug = Integer.parseInt(espacioTexto.getText());
-                            System.out.println("cantJug " + cantJug);
                             Principal app1 = new Principal(maxC, numE, elements, 2, cantJug, mazo, juego);
                             app1.setVisible(true);
                             dispose();

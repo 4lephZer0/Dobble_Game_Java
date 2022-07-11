@@ -74,19 +74,25 @@ public class VentanaRegistros extends JFrame {
 
                 if (e.getKeyChar() == '\n'){
 
-                    if (juego.getJugadores().size() != (juego.getNumPlayers()-1)){
+                    Integer tamano = juego.getJugadores().size();
+
+                    if (juego.getJugadores().size() < (juego.getNumPlayers() - 1)){
+
                         jugador = new Player(espacioTexto.getText());
-                        System.out.println("tamaño jugador: " + juego.getJugadores().size() + "Numplayers: " + juego.getNumPlayers());
                         juego.register(juego, jugador);
                         app = new VentanaRegistros(juego);
                         app.setVisible(true);
                         dispose();
-                    }
-                    else{
 
+                    }else if(tamano.equals(juego.getNumPlayers() - 1)){
+
+
+                        jugador = new Player(espacioTexto.getText());
+                        juego.register(juego, jugador);
                         Principal app1 = new Principal(0, 0, null, 3, 0, null, juego);
                         app1.setVisible(true);
                         dispose();
+
                     }
                 }
             }
