@@ -120,7 +120,6 @@ public class Principal extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 mazo = new Dobble(maxC, numE, elements);
-                System.out.println("mazo: " + mazo);
                 juego = new DobbleGame(cantJug, mazo,"stackMode");
                 VentanaRegistros app3 = new VentanaRegistros(juego);
                 app3.setVisible(true);

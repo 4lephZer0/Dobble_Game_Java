@@ -5,7 +5,6 @@ import Dobble.DobbleGame;
 import javax.swing.*;;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.List;
 
 public class VentanaJuego extends JFrame {
 
@@ -23,7 +22,6 @@ public class VentanaJuego extends JFrame {
 
     public VentanaJuego(DobbleGame juego, String caso){
 
-        System.out.println("Juego: " + juego);
         this.caso = caso;
         this.juego = juego;
 
@@ -63,7 +61,7 @@ public class VentanaJuego extends JFrame {
 
         if (caso.equals("vuelta")){
 
-            textoTurno = new JLabel("Turno de: " + juego.whoseTurnIsIt(juego).getJugador());
+            textoTurno = new JLabel("Turno de: " + juego.whoseTurnIsIt(juego).getJugador() + " || Puntaje: " + juego.getCartasJugadores().get(juego.getTurno()-1).size());
             textoTurno.setHorizontalAlignment(SwingConstants.CENTER);
             textoTurno.setBounds(150,50, 300, 50);
             textoTurno.setForeground(Color.BLACK);
@@ -120,12 +118,22 @@ public class VentanaJuego extends JFrame {
         ActionListener vueltas = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Juego: " + juego);
-                juego = juego.play(juego,"1", "");
+                int largo = juego.getDobble().getCards().size();
+                if (largo <= 1){
 
-                VentanaJuego app1 = new VentanaJuego(juego, "vuelta");
-                app1.setVisible(true);
-                dispose();
+                    juego = juego.play(juego,"4", "");
+                    VentanaFin app2 = new VentanaFin(juego);
+                    app2.setVisible(true);
+                    dispose();
+                }
+
+                else{
+                    juego = juego.play(juego,"1", "");
+                    VentanaJuego app1 = new VentanaJuego(juego, "vuelta");
+                    app1.setVisible(true);
+                    dispose();
+                }
+
             }
         };
         darVueltaCartas.addActionListener(vueltas);
@@ -157,7 +165,7 @@ public class VentanaJuego extends JFrame {
 
         JButton spotear = new JButton("Spotear Elemento");
         spotear.setBounds(100,410, 150,30);
-        spotear.setFont(new Font("Georgia",0, 15));
+        spotear.setFont(new Font("Georgia",0, 14));
 
         if (caso.equals("vuelta")){
             spotear.setEnabled(true);
@@ -172,9 +180,8 @@ public class VentanaJuego extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                juego = juego.play(juego, "3", "");
-                app = new VentanaJuego(juego, "NoCards");
-                app.setVisible(true);
+                VentanaSpotit app1 = new VentanaSpotit(juego);
+                app1.setVisible(true);
                 dispose();
             }
         };
@@ -190,7 +197,9 @@ public class VentanaJuego extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.exit(0);
+                VentanaFin app2 = new VentanaFin(juego);
+                app2.setVisible(true);
+                dispose();
             }
         };
         finalizar.addActionListener(finaliza);

@@ -84,7 +84,7 @@ public class VentanaDatos extends JFrame {
         }
 
         texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setBounds(150,260, 300, 30);
+        texto.setBounds(100,260, 400, 30);
         texto.setForeground(Color.BLACK);
         texto.setFont(new Font("Georgia",1, 15));
         panel.add(texto);

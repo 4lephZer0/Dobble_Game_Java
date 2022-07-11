@@ -54,7 +54,7 @@ public class DobbleGame implements Game {
     // Metodo que muestra el puntaje de x jugador
     public Integer score(DobbleGame game, String Usuario){
 
-        Integer posicion = game.getJugadores().indexOf(Usuario);
+        int posicion = game.getJugadores().indexOf(Usuario);
         return game.getCartasJugadores().get(posicion).size();
     }
 
@@ -98,6 +98,35 @@ public class DobbleGame implements Game {
         return estado;
     }
 
+    // Metodo para obtener al ganador
+    public String getGanador(DobbleGame game){
+
+        Player ganador = game.getJugadores().get(0);
+        Integer puntaje = game.getCartasJugadores().get(0).size();
+        int puntaje2 = 0;
+        for (int i = 1; i < game.getNumPlayers(); i++){
+
+            if (game.getCartasJugadores().get(i).size() > puntaje){
+                puntaje = game.getCartasJugadores().get(i).size();
+                ganador = game.getJugadores().get(i);
+
+            }else if(puntaje.equals(game.getCartasJugadores().get(i).size())){
+
+                puntaje2 = game.getCartasJugadores().get(i).size();
+
+            }
+
+        }
+
+        if (puntaje.equals(puntaje2)){
+
+            return "Empatados";
+        }
+        else{
+
+            return ganador.getJugador();
+        }
+    }
 
     // ####### METODOS MODIFICADORES #########
 
@@ -138,14 +167,8 @@ public class DobbleGame implements Game {
             game.setCartasJugadores(cartasJugAux);
 
             game.setTurno((game.getTurno() + 1));
-            System.out.println("\nJUGADOR REGISTRADO CON EXITO!!\n");
 
         }
-        else{
-
-            System.out.println("No se pueden registrar mas usuarios.");
-        }
-
         return game;
 
     }
@@ -165,7 +188,7 @@ public class DobbleGame implements Game {
 
         }else if (accion.equals("2")){
 
-            if (game.getMesa().get(0).getElementos().contains(elemento) || game.getMesa().get(1).getElementos().contains(elemento)){
+            if (game.getMesa().get(0).getElementos().contains(elemento) && game.getMesa().get(1).getElementos().contains(elemento)){
 
                 List<List<Card>> cartasJug = new ArrayList<List<Card>>(game.getCartasJugadores());
 
@@ -185,9 +208,6 @@ public class DobbleGame implements Game {
             }
 
             else{
-
-                System.out.println("El elemento ingresado no está en comun entre las 2 cartas de la mesa...");
-                System.out.println("Se pasa al siguiente turno.");
 
                 Integer a = game.getTurno();
                 if (a.equals(game.getNumPlayers())){
@@ -210,7 +230,6 @@ public class DobbleGame implements Game {
 
         }else if (accion.equals("3")){
 
-            System.out.println("Se pasa al siguiente turno.");
 
             Integer a = game.getTurno();
             if (a.equals(game.getNumPlayers())){
