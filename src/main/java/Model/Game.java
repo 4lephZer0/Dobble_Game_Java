@@ -1,4 +1,4 @@
-package Dobble;
+package Model;
 
 import java.util.*;
 

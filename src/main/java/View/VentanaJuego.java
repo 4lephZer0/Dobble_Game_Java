@@ -1,8 +1,8 @@
-package Ventanas;
+package View;
 
-import Dobble.DobbleGame;
+import Model.DobbleGame;
 
-import javax.swing.*;;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -17,8 +17,8 @@ public class VentanaJuego extends JFrame {
     VentanaJuego app;
 
 
-    String caso;
-    DobbleGame juego;
+    private String caso;
+    private DobbleGame juego;
 
     public VentanaJuego(DobbleGame juego, String caso){
 
@@ -29,7 +29,7 @@ public class VentanaJuego extends JFrame {
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(600, 600));
 
-        setTitle("Dobble");
+        setTitle("Model");
 
 
         componentes();
@@ -119,9 +119,9 @@ public class VentanaJuego extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int largo = juego.getDobble().getCards().size();
+                System.out.println("Cartas restantes: " + juego.getDobble().getCards());
                 if (largo <= 1){
 
-                    juego = juego.play(juego,"4", "");
                     VentanaFin app2 = new VentanaFin(juego);
                     app2.setVisible(true);
                     dispose();

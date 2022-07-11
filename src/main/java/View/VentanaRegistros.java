@@ -1,6 +1,6 @@
-package Ventanas;
+package View;
 
-import Dobble.*;
+import Model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,7 @@ public class VentanaRegistros extends JFrame {
     Player jugador;
 
 
-    DobbleGame juego = null;
+    private DobbleGame juego = null;
 
     public VentanaRegistros(DobbleGame juego){
 
@@ -26,7 +26,7 @@ public class VentanaRegistros extends JFrame {
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(600, 600));
 
-        setTitle("Dobble");
+        setTitle("Model");
 
 
         componentes();
@@ -59,7 +59,7 @@ public class VentanaRegistros extends JFrame {
         texto.setHorizontalAlignment(SwingConstants.CENTER);
         texto.setBounds(150,260, 300, 30);
         texto.setForeground(Color.BLACK);
-        texto.setFont(new Font("Georgia",1, 15));
+        texto.setFont(new Font("Georgia", Font.BOLD, 15));
         panel.add(texto);
     }
 
@@ -89,7 +89,7 @@ public class VentanaRegistros extends JFrame {
 
                         jugador = new Player(espacioTexto.getText());
                         juego.register(juego, jugador);
-                        Principal app1 = new Principal(0, 0, null, 3, 0, null, juego);
+                        VentanaPrincipal app1 = new VentanaPrincipal(0, 0, null, 3, 0, null, juego);
                         app1.setVisible(true);
                         dispose();
 

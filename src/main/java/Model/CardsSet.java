@@ -1,4 +1,4 @@
-package Dobble;
+package Model;
 
 // Interfaz del mazo de cartas
 public interface CardsSet {

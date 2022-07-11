@@ -1,6 +1,6 @@
-package Ventanas;
+package View;
 
-import Dobble.*;
+import Model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,13 +16,12 @@ public class VentanaDatos extends JFrame {
     JTextField espacioTexto = new JTextField();
     VentanaDatos app;
 
-    int maxC;
-    int numE;
-    int cantJug;
-    int n;
-    List<String> elements;
-    Dobble mazo;
-    DobbleGame juego = null;
+    private int maxC;
+    private int numE;
+    private int cantJug;
+    private int n;
+    private List<String> elements;
+    private DobbleGame juego = null;
 
     public VentanaDatos(int n, int maxC, int numE, List<String> elements, int cantJug){
         this.n = n;
@@ -35,7 +34,7 @@ public class VentanaDatos extends JFrame {
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(600, 600));
 
-        setTitle("Dobble");
+        setTitle("Model");
 
 
         componentes();
@@ -115,7 +114,7 @@ public class VentanaDatos extends JFrame {
                             break;
                         case 4:
                             cantJug = Integer.parseInt(espacioTexto.getText());
-                            Principal app1 = new Principal(maxC, numE, elements, 2, cantJug, mazo, juego);
+                            VentanaPrincipal app1 = new VentanaPrincipal(maxC, numE, elements, 2, cantJug, null, juego);
                             app1.setVisible(true);
                             dispose();
                             break;

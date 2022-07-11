@@ -1,4 +1,4 @@
-package Dobble;
+package Model;
 
 import java.util.*;
 
@@ -291,19 +291,9 @@ public class DobbleGame implements Game {
         this.mesa = mesa;
     }
 
-    // Metodo que se encarga de setear la cantidad de jugadores registrados
-    public void setNumPlayers(int numPlayers) {
-        this.numPlayers = numPlayers;
-    }
-
     // Metodo que se encarga de setear el mazo de juego
     public void setDobble(Dobble dobble) {
         this.dobble = dobble;
-    }
-
-    // Metodo que se encarga de setear el modo de juego
-    public void setMode(String mode) {
-        this.mode = mode;
     }
 
     // Metodo que se encarga de setear la lista de jugadores

@@ -1,28 +1,28 @@
-package Ventanas;
+package View;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-import Dobble.*;
+import Model.*;
 
 
-public class Principal extends JFrame {
+public class VentanaPrincipal extends JFrame {
     JPanel panel = new JPanel();
 
-    Dobble mazo;
-    DobbleGame juego = null;
+    private Dobble mazo;
+    private DobbleGame juego = null;
 
-    int maxC;
-    int numE;
-    List<String> elements;
-    int caso;
-    int cantJug;
+    private int maxC;
+    private int numE;
+    private List<String> elements;
+    private int caso;
+    private int cantJug;
 
 
 
-    public Principal(int maxC, int numE, List<String> elements, int caso, int cantJug, Dobble mazo, DobbleGame juego){
+    public VentanaPrincipal(int maxC, int numE, List<String> elements, int caso, int cantJug, Dobble mazo, DobbleGame juego){
 
         this.maxC = maxC;
         this.numE = numE;
@@ -36,7 +36,7 @@ public class Principal extends JFrame {
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(600, 600));
 
-        setTitle("Dobble");
+        setTitle("Model");
 
 
         componentes();

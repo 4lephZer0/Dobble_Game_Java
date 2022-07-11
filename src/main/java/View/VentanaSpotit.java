@@ -1,7 +1,6 @@
-package Ventanas;
+package View;
 
-import Dobble.DobbleGame;
-import Dobble.Player;
+import Model.DobbleGame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +14,8 @@ public class VentanaSpotit extends JFrame {
     JLabel texto = new JLabel();
     JTextField espacioTexto = new JTextField();
 
-    DobbleGame juego;
-    Integer largo;
+    private DobbleGame juego;
+    private Integer largo;
 
     public VentanaSpotit(DobbleGame juego){
 
@@ -26,7 +25,7 @@ public class VentanaSpotit extends JFrame {
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(600, 600));
 
-        setTitle("Dobble");
+        setTitle("Model");
 
 
         componentes();

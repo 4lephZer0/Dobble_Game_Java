@@ -1,29 +1,31 @@
-package Ventanas;
+package View;
 
-import Dobble.DobbleGame;
+import Model.DobbleGame;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VentanaFin extends JFrame {
+public class VentanaCaso extends JFrame {
 
     JPanel panel = new JPanel();
     JLabel logo = new JLabel();
     JLabel texto = new JLabel();
     JLabel texto2 = new JLabel();
     DobbleGame juego;
+    int caso;
 
-    public VentanaFin(DobbleGame juego){
+    public VentanaCaso(DobbleGame juego, int caso){
 
         this.juego = juego;
+        this.caso = caso;
 
         setSize(600,600);
         setLocationRelativeTo(null);
         setMinimumSize(new Dimension(600, 600));
 
-        setTitle("Dobble");
+        setTitle("Model");
 
 
         componentes();
@@ -47,29 +49,39 @@ public class VentanaFin extends JFrame {
 
     private void etiquetas() {
         ImageIcon logotipo = new ImageIcon("dobbleLogo.png");
-        logo.setBounds(175, 0, 250, 250);
+        logo.setBounds(0, 0, 100, 100);
         logo.setIcon(new ImageIcon(logotipo.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), 4)));
         panel.add(logo);
 
-        texto = new JLabel("Juego Finalizado");
-        texto.setHorizontalAlignment(SwingConstants.CENTER);
-        texto.setBounds(150,260, 300, 30);
-        texto.setForeground(Color.BLACK);
-        texto.setFont(new Font("Georgia",1, 15));
-        panel.add(texto);
+        switch (caso){
 
-        texto2 = new JLabel("Ganador: " + juego.getGanador(juego));
-        texto2.setHorizontalAlignment(SwingConstants.CENTER);
-        texto2.setBounds(150,300, 300, 30);
-        texto2.setForeground(Color.BLACK);
-        texto2.setFont(new Font("Georgia",1, 15));
-        panel.add(texto2);
+            case 0:
+
+                texto = new JLabel("El elemento ingresado no coincide :(");
+                texto.setHorizontalAlignment(SwingConstants.CENTER);
+                texto.setBounds(100,150, 400, 30);
+                texto.setForeground(Color.BLACK);
+                texto.setFont(new Font("Georgia",1, 15));
+                panel.add(texto);
+                break;
+
+            case 1:
+
+                texto = new JLabel("Elemento spoteado con exito!!");
+                texto.setHorizontalAlignment(SwingConstants.CENTER);
+                texto.setBounds(100,150, 400, 30);
+                texto.setForeground(Color.BLACK);
+                texto.setFont(new Font("Georgia",1, 15));
+                panel.add(texto);
+                break;
+
+        }
     }
 
     private void botones() {
 
-        JButton aceptarButton = new JButton("Aceptar");
-        aceptarButton.setBounds(225, 340, 150, 30);
+        JButton aceptarButton = new JButton("Continuar");
+        aceptarButton.setBounds(225, 300, 150, 30);
         aceptarButton.setFont(new Font("Georgia", Font.PLAIN, 14));
         aceptarButton.setEnabled(true);
 
@@ -77,7 +89,7 @@ public class VentanaFin extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Principal app2 = new Principal(0, 0, null, 1, 0, null, null);
+                VentanaJuego app2 = new VentanaJuego(juego, "NoCards");
                 app2.setVisible(true);
                 dispose();
             }

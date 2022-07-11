@@ -1,4 +1,4 @@
-package Dobble;
+package Model;
 
 
 import java.util.*;
@@ -62,7 +62,7 @@ public class Dobble implements CardsSet {
         List<Card> mazoNuevo = null;
         if ((maxC < mazo.size()) && (maxC > 0)) {
 
-            mazoNuevo = mazo.subList(0, (maxC - 1));
+            mazoNuevo = mazo.subList(0, maxC);
         } else if ((maxC >= mazo.size()) || (maxC < 0)){
 
             mazoNuevo = mazo;
@@ -185,21 +185,6 @@ public class Dobble implements CardsSet {
             }
             return mazo;
         }
-    }
-
-    // Metodo que se encarga de setear el maxC
-    public void setMaxC(int maxC) {
-        this.maxC = maxC;
-    }
-
-    // Metodo que se encarga de setear el numE
-    public void setNumE(int numE) {
-        this.numE = numE;
-    }
-
-    // Metodo que se encarga de setear la lista de elementos
-    public void setElements(List<String> elements) {
-        this.elements = elements;
     }
 
     // Metodo que se encarga de setear la lista de cartas
