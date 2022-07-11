@@ -7,21 +7,24 @@ import java.util.List;
 
 import Model.*;
 
-
+/*
+ * Clase VentanaPrincipal, esta representa la ventana principal del juego
+ * donde se encuentran las opciones de crear juego, Registrar jugadores, empezar partida y Cerrar juego.
+ */
 public class VentanaPrincipal extends JFrame {
     JPanel panel = new JPanel();
 
     private Dobble mazo;
-    private DobbleGame juego = null;
+    private DobbleGame juego;
 
-    private int maxC;
-    private int numE;
-    private List<String> elements;
-    private int caso;
-    private int cantJug;
+    private int maxC; //Atributo que representa el maximo de cartas
+    private int numE; //Atributo que representa el numero total de elementos por carta
+    private List<String> elements; //Atributo que representa la lista de elementos
+    private int caso; //Atributo que representa el caso actual
+    private int cantJug; //Atributo que representa la cantidad de jugadores a registrarse
 
 
-
+    // Este metodo se encarga de construir la Ventana e instanciar todos los atributos de él.
     public VentanaPrincipal(int maxC, int numE, List<String> elements, int caso, int cantJug, Dobble mazo, DobbleGame juego){
 
         this.maxC = maxC;
@@ -43,6 +46,7 @@ public class VentanaPrincipal extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    // Este metodo se encarga de encapsular otros metodos para el orden del codigo.
     private void componentes(){
 
         paneles();
@@ -51,6 +55,7 @@ public class VentanaPrincipal extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar el panel de fondo con su respectivo Color o diseño.
     private void paneles(){
 
         panel.setBackground(new Color(0, 128, 0,255));
@@ -59,6 +64,7 @@ public class VentanaPrincipal extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar las etiquetas para los textos y el logo.
     private void etiquetas(){
 
         ImageIcon logotipo = new ImageIcon("dobbleLogo.png");
@@ -69,6 +75,7 @@ public class VentanaPrincipal extends JFrame {
         panel.add(logo);
     }
 
+    // Este metodo se encarga de generar los botones y darles un evento asociado.
     private void botones(){
 
         JButton crearJuego = new JButton("Crear un Nuevo Juego");

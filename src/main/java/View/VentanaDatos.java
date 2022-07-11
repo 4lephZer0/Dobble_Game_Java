@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+ * Clase VentanaDatos, esta representa la ventana que se encarga de recopilar los datos para la creacion del mazo
+ * utiliza diversos atributos para la generacion del mazo y se repite hasta recopilarlos todos los datos correspondientes.
+ */
 public class VentanaDatos extends JFrame {
     JPanel panel = new JPanel();
     JLabel texto = new JLabel();
@@ -16,13 +20,14 @@ public class VentanaDatos extends JFrame {
     JTextField espacioTexto = new JTextField();
     VentanaDatos app;
 
-    private int maxC;
-    private int numE;
-    private int cantJug;
-    private int n;
-    private List<String> elements;
-    private DobbleGame juego = null;
+    private int maxC; //Atributo que representa el maximo de cartas
+    private int numE; //Atributo que representa el numero total de elementos por carta
+    private int cantJug; //Atributo que representa la cantidad de jugadores a registrar
+    private int n; //Atributo que representa el caso actual a realizar dependiendo de su valor
+    private List<String> elements; //Atributo que representa la lista de elementos
+    private DobbleGame juego = null; //Atributo que representa un juego de Dobble
 
+    // Este metodo se encarga de construir la Ventana e instanciar todos los atributos de él.
     public VentanaDatos(int n, int maxC, int numE, List<String> elements, int cantJug){
         this.n = n;
         this.maxC = maxC;
@@ -41,6 +46,7 @@ public class VentanaDatos extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    // Este metodo se encarga de encapsular otros metodos para el orden del codigo.
     private void componentes(){
 
         paneles();
@@ -49,6 +55,7 @@ public class VentanaDatos extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar el panel de fondo con su respectivo Color o diseño.
     private void paneles(){
 
         panel.setBackground(new Color(0, 128, 0,255));
@@ -56,6 +63,7 @@ public class VentanaDatos extends JFrame {
         panel.setLayout(null);
     }
 
+    // Este metodo se encarga de generar las etiquetas para los textos y el logo.
     private void etiquetas(){
 
         ImageIcon logotipo = new ImageIcon("dobbleLogo.png");
@@ -90,6 +98,7 @@ public class VentanaDatos extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar una caja de texto que contiene eventos asociados y donde se puede escribir.
     private void cajatexto(){
 
         espacioTexto.setBounds(175, 300, 250, 30);

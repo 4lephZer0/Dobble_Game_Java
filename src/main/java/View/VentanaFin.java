@@ -7,14 +7,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Clase VentanaSpotit, esta representa el Final de un juego y muestra por pantalla al ganador o si hay algun empate
 public class VentanaFin extends JFrame {
 
     JPanel panel = new JPanel();
     JLabel logo = new JLabel();
     JLabel texto = new JLabel();
     JLabel texto2 = new JLabel();
-    DobbleGame juego;
+    DobbleGame juego; //Atributo que representa un juego de Dobble
 
+    // Este metodo se encarga de construir la Ventana e instanciar todos los atributos de él.
     public VentanaFin(DobbleGame juego){
 
         this.juego = juego;
@@ -30,6 +32,7 @@ public class VentanaFin extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    // Este metodo se encarga de encapsular otros metodos para el orden del codigo.
     private void componentes(){
 
         paneles();
@@ -38,6 +41,7 @@ public class VentanaFin extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar el panel de fondo con su respectivo Color o diseño.
     private void paneles(){
 
         panel.setBackground(new Color(0, 128, 0,255));
@@ -45,6 +49,7 @@ public class VentanaFin extends JFrame {
         panel.setLayout(null);
     }
 
+    // Este metodo se encarga de generar las etiquetas para los textos y el logo.
     private void etiquetas() {
         ImageIcon logotipo = new ImageIcon("dobbleLogo.png");
         logo.setBounds(175, 0, 250, 250);
@@ -66,6 +71,7 @@ public class VentanaFin extends JFrame {
         panel.add(texto2);
     }
 
+    // Este metodo se encarga de generar los botones y darles un evento asociado.
     private void botones() {
 
         JButton aceptarButton = new JButton("Aceptar");

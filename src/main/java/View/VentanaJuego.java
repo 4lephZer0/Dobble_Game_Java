@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/*
+ * Clase VentanaJuego, esta representa la ventana donde ocurre todo el juego de Dobble
+ * aqui se encuentran las diversas opciones como Voltear cartas, Pasar turno, Spotear cartas y finalizar juego.
+ */
 public class VentanaJuego extends JFrame {
 
     JPanel panel = new JPanel();
@@ -17,9 +21,10 @@ public class VentanaJuego extends JFrame {
     VentanaJuego app;
 
 
-    private String caso;
-    private DobbleGame juego;
+    private String caso; //Atributo que representa el caso actual, dependiendo de lo que diga, ocurre una y otra cosa.
+    private DobbleGame juego; //Atributo que representa un juego de Dobble
 
+    // Este metodo se encarga de construir la Ventana e instanciar todos los atributos de él.
     public VentanaJuego(DobbleGame juego, String caso){
 
         this.caso = caso;
@@ -37,6 +42,7 @@ public class VentanaJuego extends JFrame {
 
     }
 
+    // Este metodo se encarga de encapsular otros metodos para el orden del codigo.
     private void componentes(){
 
         paneles();
@@ -45,6 +51,7 @@ public class VentanaJuego extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar el panel de fondo con su respectivo Color o diseño.
     private void paneles(){
 
         panel.setBackground(new Color(0, 128, 0,255));
@@ -52,6 +59,7 @@ public class VentanaJuego extends JFrame {
         panel.setLayout(null);
     }
 
+    // Este metodo se encarga de generar las etiquetas para los textos y el logo.
     private void etiquetas() {
 
         ImageIcon logotipo = new ImageIcon("dobbleLogo.png");
@@ -100,6 +108,7 @@ public class VentanaJuego extends JFrame {
         }
     }
 
+    // Este metodo se encarga de generar los botones y darles un evento asociado.
     private void botones(){
 
         JButton darVueltaCartas = new JButton("Dar Vuelta Cartas");

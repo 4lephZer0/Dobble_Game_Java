@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/*
+ * Clase VentanaRegistros, esta ventana se encarga de registrar a los jugadores segun su nombre
+ * solo se puede ingresar un maximo de jugadores el cual es el valor ingresado previamente en datos
+ */
 public class VentanaRegistros extends JFrame {
     JPanel panel = new JPanel();
     JLabel texto = new JLabel();
@@ -16,8 +20,9 @@ public class VentanaRegistros extends JFrame {
     Player jugador;
 
 
-    private DobbleGame juego = null;
+    private DobbleGame juego; //Atributo que representa un juego de Dobble
 
+    // Este metodo se encarga de construir la Ventana e instanciar todos los atributos de él.
     public VentanaRegistros(DobbleGame juego){
 
         this.juego = juego;
@@ -33,6 +38,7 @@ public class VentanaRegistros extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    // Este metodo se encarga de encapsular otros metodos para el orden del codigo.
     private void componentes(){
 
         paneles();
@@ -41,6 +47,7 @@ public class VentanaRegistros extends JFrame {
 
     }
 
+    // Este metodo se encarga de generar el panel de fondo con su respectivo Color o diseño.
     private void paneles(){
 
         panel.setBackground(new Color(0, 128, 0,255));
@@ -48,6 +55,7 @@ public class VentanaRegistros extends JFrame {
         panel.setLayout(null);
     }
 
+    // Este metodo se encarga de generar las etiquetas para los textos y el logo.
     private void etiquetas() {
 
         ImageIcon logotipo = new ImageIcon("dobbleLogo.png");
@@ -63,6 +71,7 @@ public class VentanaRegistros extends JFrame {
         panel.add(texto);
     }
 
+    // Este metodo se encarga de generar una caja de texto que contiene eventos asociados y donde se puede escribir.
     private void cajatexto() {
 
         espacioTexto.setBounds(175, 300, 250, 30);
